@@ -4,11 +4,9 @@ import './VentanaPrincipal.css';
 //components
 import Login from '../Login/Login';
 import Registro from '../Registro/Registro';
-// import ArrayExportado from '../../Context/Context';
 
 function VentanaPrincipal(props){
-    // const context = useContext(ArrayExportado);
-    
+        
     const [ loginRegistro, setLoginRegistro] = useState(false);
 
     const handleClickEnviarARegistro = () => {
@@ -20,7 +18,7 @@ function VentanaPrincipal(props){
         {
             !loginRegistro
             ?
-            <Login handleClickEnviarARegistro={handleClickEnviarARegistro}></Login>
+            <Login handleClickEnviarARegistro={handleClickEnviarARegistro} funcionCambiarLogeadoAWeb={props.funcionCambiarLogeadoAWeb}></Login>
             :
             <Registro handleClickEnviarARegistro={handleClickEnviarARegistro}></Registro>
         }        

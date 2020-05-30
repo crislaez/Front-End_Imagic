@@ -1,0 +1,13 @@
+.contenedorSolicitudes{
+    width: 35%;
+    height: 300px;
+    margin-left: 47%;
+    position: absolute;
+    overflow-y: scroll;
+    margin-top: -20px;
+    background: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px gray;
+    z-index: 1;
+}

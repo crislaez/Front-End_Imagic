@@ -7,11 +7,13 @@ import Header from '../Header/Header';
 import Nav from '../Nav/Nav';
 import Section from '../Section/Section';
 import Footer from '../Footer/Footer';
-import ArrayExportado, {arrayDev} from '../../Context/Context';
+import ArrayExportado, {arrayDos,arrayDev} from '../../Context/Context';
 
 function App(props){
 
     const [logueado, setLogueado] = useState(false);
+    const [ventana,setVentana] = useState('');
+    const[ventanaSolidcitudes, setVentanaSolicitudes] = useState(false);
 
     useEffect( () => {
         if(localStorage.getItem('userNameImagic') && localStorage.getItem('userKeyImagic')){
@@ -21,22 +23,36 @@ function App(props){
         }
     },[])
 
+    const funcionCambiarLogeadoAWeb = () => {
+        setLogueado(!logueado);
+    }
+
+    const funcionCambiarVentana = (event) => {
+        if(event.target.tagName === 'path'){
+            setVentana(event.target.parentNode.dataset.codigo)
+        }else{
+            setVentana(event.target.dataset.codigo)
+        }        
+    }
+
+    const funcionVentanaSolicitudes = () => {
+        setVentanaSolicitudes(!ventanaSolidcitudes);
+    }
+    // console.log(ventana);
     return(
-        <ArrayExportado.Provider value={arrayDev}>
         <div>
             {
                 !logueado
                 ?
-                <VentanaPrincipal></VentanaPrincipal>
+                <VentanaPrincipal funcionCambiarLogeadoAWeb={funcionCambiarLogeadoAWeb}></VentanaPrincipal>
                 :
                 <div>
-                    <Header></Header>            
-                    <Section></Section>
+                    <Header funcionCambiarVentana={funcionCambiarVentana} funcionVentanaSolicitudes={funcionVentanaSolicitudes}></Header>            
+                    <Section ventana={ventana} ventanaSolidcitudes={ventanaSolidcitudes}></Section>
                     <Footer></Footer>
                 </div>
             }            
         </div>
-        </ArrayExportado.Provider>
     )
 }
 

@@ -11,20 +11,20 @@ function Nav(props){
 
     return(
         <nav>
-            <label id='bMessage' type='button'>
-                <FontAwesomeIcon icon={faLocationArrow}></FontAwesomeIcon>
+            <label data-codigo='bMessage' type='button' onClick={props.funcionCambiarVentana}>
+                <FontAwesomeIcon data-codigo='bMessage' icon={faLocationArrow}></FontAwesomeIcon>
             </label>
 
-            <label id='bExplore' type='button'>
-                <FontAwesomeIcon icon={faCompass}></FontAwesomeIcon>
+            <label data-codigo='bExplore' type='button' onClick={props.funcionCambiarVentana}>
+                <FontAwesomeIcon data-codigo='bExplore' icon={faCompass}></FontAwesomeIcon>
             </label>
 
-            <label id='bLike' type='button'>
-                <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+            <label data-codigo='bLike' type='button' onClick={props.funcionVentanaSolicitudes}>
+                <FontAwesomeIcon data-codigo='bLike' icon={faHeart}></FontAwesomeIcon>
             </label>
 
-            <label id='bPerfil' type='button'>
-                <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
+            <label data-codigo='bPerfil' type='button' onClick={props.funcionCambiarVentana}>
+                <FontAwesomeIcon data-codigo='bPerfil' icon={faUser}></FontAwesomeIcon>
             </label>
         </nav>
     )

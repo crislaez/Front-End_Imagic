@@ -5,6 +5,7 @@ import './Registro.css';
 import swal from 'sweetalert';
 //Services
 import Services from '../../Services/Services';
+//encrioptar clave
 import md5 from 'crypto-js/md5'
 
 function Registro(props){   
@@ -58,7 +59,7 @@ function Registro(props){
             formData.append('nacimiento',nacimiento);
             formData.append('nombre_usuario',nombre_usuario);
             formData.append('correo',correo);
-            formData.append('clave',encript);
+            formData.append('clave',JSON.stringify(encript));
             formData.append('avatar',avatar);
 
             //hacemos un fetch parea enviar los datos del formulario a back
