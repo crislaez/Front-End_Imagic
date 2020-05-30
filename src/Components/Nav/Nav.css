@@ -1,0 +1,14 @@
+nav{
+    width: 32%;
+    height: 80px;
+    /* background: gold; */
+    float: left;
+}
+
+nav label{
+    width: 10%;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 1%;
+    /* background: blue; */
+}

@@ -1,0 +1,36 @@
+header{
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #E1E1E1;
+    float: left;
+}
+
+.hDivLogo{
+    width: 40%;
+    height: 80px;
+    /* background: blue; */
+    float: left;
+}
+
+.hDivLogo label{
+    margin-left: 48%;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+header form{
+    width: 28%;
+    height: 80px;
+    /* background: yellow; */
+    float: left;
+}
+
+header form input{
+    margin-top: 20px;
+    height: 30px;
+    margin-left: 10%;
+    border: 1px solid #ECECEC;
+    background:#FAFAFA;
+    text-align: center;
+    border-radius: 5px;
+}

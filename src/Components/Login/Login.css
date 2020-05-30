@@ -1,0 +1,39 @@
+.divVentanaPrincipalFoto{
+    width: 30%;
+    height: 500px;
+    background: yellowgreen;
+    margin-top: 70px;
+    margin-left: 20%;
+    float: left;
+}
+
+.componentePrincipal{
+    width: 23%;
+    height: 370px;
+    margin-left: 2%;
+    background: white;
+    margin-top: 70px;
+    border:1PX solid #E1E1E1;
+    float: left;
+}
+
+.componentePrincipalDown{
+    width: 23%;
+    height: 70px;
+    background: white;
+    border:1px solid #E1E1E1;
+    margin-top: 455px;
+    margin-left: -23%;
+    float: left;
+}
+
+.componentePrincipalDown p{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+}
+
+.componentePrincipalDown label{    
+    color: #2A87DC;
+    cursor: pointer;
+}
