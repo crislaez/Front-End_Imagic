@@ -8,15 +8,28 @@ const login = (data) => {
     return fetch(process.env.REACT_APP_RUTA+'/login', {method:'POST', body:data}).then(data => data.json())
 }
 
-const addUserById = (data) => {
-    return fetch(process.env.REACT_APP_RUTA+'/addUserById/'+data, {method:'GET'}).then(data => data.json())
+const getUserById = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getUserById/'+data, {method:'GET'}).then(data => data.json())
 }
 
-// SELECT * FROM fotos INNER JOIN usuarios ON fotos.id_usuario = usuarios.id_usuario WHERE usuarios.id_usuario = 9
+const addImagen = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/addImagen',{method:'POST', body:data}).then(data => data.json())
+}
+
+const getImagenesById = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getImagenesById/'+data,{method:'GET'}).then(data => data.json())
+}
+
+const getAllImagenes = () => {
+    return fetch(process.env.REACT_APP_RUTA+'/getAllImagenes',{method:'GET'}).then(data => data.json())
+}
 
 export default 
     {
         addUser,
         login,
-        addUserById
+        getUserById,
+        addImagen,
+        getImagenesById,
+        getAllImagenes
     }

@@ -38,7 +38,11 @@ function Header(props){
                 <input type='search' name='search' value={fieldSearch} onChange={(params) => {setFieldSearch(params.target.value)}} placeholder='Buscar'></input>
             </form>
 
-            <Nav funcionCambiarVentana={props.funcionCambiarVentana} funcionVentanaSolicitudes={props.funcionVentanaSolicitudes}></Nav>
+            <Nav 
+            funcionCambiarVentana={props.funcionCambiarVentana} 
+            funcionVentanaSolicitudes={props.funcionVentanaSolicitudes}
+            funcionVentanaSubirImagen={props.funcionVentanaSubirImagen}
+            ></Nav>
         </header>
     )
 }

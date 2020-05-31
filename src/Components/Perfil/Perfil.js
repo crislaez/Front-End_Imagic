@@ -9,19 +9,40 @@ import Services from '../../Services/Services';
 
 function Perfil(props){
 
-    const[arrayUsuario, setArrayUsuario] = useState([]);
+    const [isMount, setIsMount] = useState(false); 
+    const [arrayUsuario, setArrayUsuario] = useState([]);
+    const [arrayFotos, setArrayFotos] = useState([]); 
 
     useEffect(() =>{
+        setIsMount(true);
+        fetchDatosUsuarios();
+        // fetchFotosUsuario();
 
-        Services.addUserById(localStorage.getItem('userKeyImagic'))
+        return () => {
+            setIsMount(false);
+        }
+    },[])
+
+    const fetchDatosUsuarios = () => {
+        Services.getUserById(localStorage.getItem('userKeyImagic'))
         .then(response => {
-            console.log(response.data)
+            // console.log(response.data)
             setArrayUsuario(response.data[0])
         })
         .catch(err => console.log(err));
-    },[])
+    }
+    
+    // const fetchFotosUsuario = () => {
+    //     Services.getImagenesById(localStorage.getItem('userKeyImagic'))
+    //     .then(response => {
+    //         // console.log(response.data)
+    //         setArrayFotos(response.data)
+    //     })
+    //     .catch(err => console.log(err));
+    // }
 
-
+    console.log(props.arrayFotos);
+    // console.log(isMount)
     return(
         <article className='articlePerfil'>
 
@@ -56,6 +77,21 @@ function Perfil(props){
             </div>
 
             <div className='contenedorPerfil'>
+
+            {
+                isMount && props.arrayFotos.toString()
+                ?
+                props.arrayFotos.map( (dato, key) => {
+                    return(
+                        <div key={key} data-codigo={dato.id_foto} data-codusuario={dato.id_usuario} className='contenedorFotoUsuario'>
+                            <img src={dato.foto} alt={dato.foto}></img>
+                        </div>
+                    )
+                })
+                :
+                <div>No hay fotos</div>
+            }
+
             </div>
 
         </article>

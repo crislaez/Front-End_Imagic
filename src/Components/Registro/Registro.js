@@ -83,6 +83,7 @@ function Registro(props){
         setCorreo('');
         setClave('');
         setAvatar('');
+        document.querySelector('#fotoRegistro').value="";
     }
 
 
@@ -108,7 +109,7 @@ function Registro(props){
                     <br></br>
                     <input type='password' value={clave} onChange={(params) => {setClave(params.target.value)}} placeholder='Contraseña'></input>
                     <br></br>
-                    <label>Avatar:</label><input type='file' onChange={(params) => {setAvatar(params.target.files[0])}}></input>
+                    <label>Avatar:</label><input id='fotoRegistro' type='file' onChange={(params) => {setAvatar(params.target.files[0])}}></input>
                     <br></br>
                     <input id='bEnviarRegistro' type='submit' value='Registrarse'></input>
                 </form>

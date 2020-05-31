@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react';
 import './Nav.css';
 //font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faLocationArrow} from '@fortawesome/free-solid-svg-icons'
-import {faCompass, faHeart, faUser} from '@fortawesome/free-regular-svg-icons'
+import {faLocationArrow ,faFileUpload} from '@fortawesome/free-solid-svg-icons'
+import {faHeart, faUser} from '@fortawesome/free-regular-svg-icons'
 import {faBlogger} from '@fortawesome/free-brands-svg-icons'
 
 function Nav(props){
@@ -15,8 +15,8 @@ function Nav(props){
                 <FontAwesomeIcon data-codigo='bMessage' icon={faLocationArrow}></FontAwesomeIcon>
             </label>
 
-            <label data-codigo='bExplore' type='button' onClick={props.funcionCambiarVentana}>
-                <FontAwesomeIcon data-codigo='bExplore' icon={faCompass}></FontAwesomeIcon>
+            <label data-codigo='bExplore' type='button' onClick={props.funcionVentanaSubirImagen}>
+                <FontAwesomeIcon data-codigo='bExplore' icon={faFileUpload}></FontAwesomeIcon>
             </label>
 
             <label data-codigo='bLike' type='button' onClick={props.funcionVentanaSolicitudes}>
