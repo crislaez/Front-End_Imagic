@@ -6,12 +6,17 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCog} from '@fortawesome/free-solid-svg-icons'
 //Services
 import Services from '../../Services/Services';
+//components
+import FotoPerfil from '../FotoPerfil/FotoPerfil';
+import Comentario from '../Comentario/Comentario'
 
 function Perfil(props){
 
     const [isMount, setIsMount] = useState(false); 
     const [arrayUsuario, setArrayUsuario] = useState([]);
     const [arrayFotos, setArrayFotos] = useState([]); 
+    const [ventanaComentario, setVentanaComentario] = useState(false);
+    const [codigoImagen, setCodigoImagen] = useState('');
 
     useEffect(() =>{
         setIsMount(true);
@@ -32,15 +37,18 @@ function Perfil(props){
         .catch(err => console.log(err));
     }
     
-    // const fetchFotosUsuario = () => {
-    //     Services.getImagenesById(localStorage.getItem('userKeyImagic'))
-    //     .then(response => {
-    //         // console.log(response.data)
-    //         setArrayFotos(response.data)
-    //     })
-    //     .catch(err => console.log(err));
-    // }
+    const handleClickComponenteComentario = (event) => {
 
+       if(ventanaComentario){
+            document.body.style.overflow = 'scroll'
+       }else{        
+            window.scroll(0, 0);
+            document.body.style.overflow = 'hidden'
+       }
+       setVentanaComentario(!ventanaComentario);
+       setCodigoImagen(event.target.dataset.codigo)
+    }
+    
     console.log(props.arrayFotos);
     // console.log(isMount)
     return(
@@ -83,9 +91,7 @@ function Perfil(props){
                 ?
                 props.arrayFotos.map( (dato, key) => {
                     return(
-                        <div key={key} data-codigo={dato.id_foto} data-codusuario={dato.id_usuario} className='contenedorFotoUsuario'>
-                            <img src={dato.foto} alt={dato.foto}></img>
-                        </div>
+                         <FotoPerfil key={key} id_foto={dato.id_foto} id_usuario={dato.id_usuario} foto={dato.foto} handleClickComponenteComentario={handleClickComponenteComentario}></FotoPerfil>
                     )
                 })
                 :
@@ -93,6 +99,14 @@ function Perfil(props){
             }
 
             </div>
+
+            {
+                ventanaComentario
+                ?
+                <Comentario handleClickComponenteComentario={handleClickComponenteComentario} codigoImagen={codigoImagen}></Comentario>
+                :
+                <div style={{display:'none'}}></div>
+            }
 
         </article>
     )

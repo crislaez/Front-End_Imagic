@@ -24,6 +24,10 @@ const getAllImagenes = () => {
     return fetch(process.env.REACT_APP_RUTA+'/getAllImagenes',{method:'GET'}).then(data => data.json())
 }
 
+const getImagenByIdImagen = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getImagenByIdImagen/'+data,{method:'GET'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -31,5 +35,6 @@ export default
         getUserById,
         addImagen,
         getImagenesById,
-        getAllImagenes
+        getAllImagenes,
+        getImagenByIdImagen
     }
