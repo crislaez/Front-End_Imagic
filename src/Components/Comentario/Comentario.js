@@ -5,19 +5,25 @@ import './Comentario.css'
 import Services from '../../Services/Services';
 //alertas
 import swal from 'sweetalert';
+//font awesome
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faHeart} from '@fortawesome/free-regular-svg-icons'
 
 function Comentario(props){
-    
+
+    const [isMount, setIsMount] = useState(false); 
     const [arrayFoto, setArrayFoto] = useState([]);
     const [arrayComentario, setArrayComentario] = useState([]);
     const [textoComentario, setTextoComentario] = useState('');
 
     
     useEffect( () => {
+        setIsMount(true);
         fetchFotoPorId();
-        fetcComentariosIdFoto();
+        fetchComentariosIdFoto();
+        
         return () => {
-
+            setIsMount(false);
         }
     },[]);
     
@@ -29,7 +35,7 @@ function Comentario(props){
         })
     };
     
-    const fetcComentariosIdFoto = () => {
+    const fetchComentariosIdFoto = () => {
         Services.getComentByIdImagen(props.codigoImagen)
         .then(response => {
             console.log(response)
@@ -50,6 +56,7 @@ function Comentario(props){
                     console.log(response)
                     if(response.success){
                         swal("Ok", "Foto subida correctamente", "success");
+                        fetchComentariosIdFoto();
                     }
                 })           
                 .catch(err => console.log(err))    
@@ -86,9 +93,39 @@ function Comentario(props){
                     </div>
 
                     <div className='divComentarioCenter'>
+
+                        <div className='textoComentario'>
+                            <div className='divimagenComentario'>
+                                <img src={props.avatar} alt={props.nombre_usuario}></img>
+                            </div>
+                            <div className='divParrafoTexto'>
+                                <p>{arrayFoto.texto_foto}</p>
+                            </div>                            
+                        </div>
+                    {
+                        isMount && arrayComentario.toString()
+                        ?
+                        arrayComentario.map( (dato, key) => {
+                            return(
+                                <div className='textoComentario' key={key} data-codigo={dato.id_comentario} data-codigousuario={dato.id_usuario}>
+                                    <div className='divimagenComentario'>
+                                        <img src={dato.avatar} alt={dato.avatar}></img>
+                                    </div>
+                                    <div className='divParrafoTexto'>
+                                        <p>{dato.texto_comentario}</p>
+                                    </div>                                    
+                                </div>
+                            )
+                        })
+                        :
+                        <div style={{textAlign:'center', marginTop:'20px'}}>No hay comentarios</div>
+                    }
                     </div>
 
                     <div className='diuvComentarioLikes'>
+                        <label data-codigo={arrayFoto.id_foto} type='button' >
+                            <FontAwesomeIcon data-codigo='bLike' icon={faHeart}></FontAwesomeIcon>
+                        </label>
                     </div>
                     
                     <form onSubmit={handleSubmit} action='' method='' encType='multipart/form-data'>

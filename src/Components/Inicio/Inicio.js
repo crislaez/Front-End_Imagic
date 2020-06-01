@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import './Inicio.css';
 //Services
 import Services from '../../Services/Services';
+//componente
+import FotoInicio from '../FotoInicio/FotoInicio';
 
 function Inicio(props){
     
@@ -37,26 +39,16 @@ function Inicio(props){
                     isMount && arrayTodasFotos.toString()
                     ?
                     arrayTodasFotos.map( (dato, key) => {
-                        return(
-                            <div key={key} className='divFotosInicio' data-codigo={dato.id_foto} data-codigousuario={dato.id_usuario}>
-                                
-                                <div className='divUsuario'>
-                                    <div className='divFotoPrincipalsuario'>
-                                        <img src={dato.avatar} alt={dato.avatar}></img>                                        
-                                    </div>
-
-                                    <h3>{dato.nombre_usuario}</h3>
-                                </div>
-
-                                <div className='divFotoUsuario'>
-                                    <img src={dato.foto} alt={dato.foto}></img>
-                                </div>
-
-                                <div className='divComentarios'>
-                                </div>
-                                
-
-                            </div>
+                        return(                            
+                            <FotoInicio 
+                            key={key}
+                            id_foto={dato.id_foto} 
+                            id_usuario={dato.id_usuario} 
+                            avatar={dato.avatar} 
+                            nombre_usuario={dato.nombre_usuario} 
+                            foto={dato.foto}
+                            texto_foto={dato.texto_foto}
+                            ></FotoInicio>
                         )
                     })
                     :

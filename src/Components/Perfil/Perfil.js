@@ -40,7 +40,7 @@ function Perfil(props){
        if(ventanaComentario){
             document.body.style.overflow = 'scroll'
        }else{        
-            window.scroll(0, 0);
+            // window.scroll(0, 0);
             document.body.style.overflow = 'hidden'
        }
        setVentanaComentario(!ventanaComentario);
