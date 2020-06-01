@@ -49,6 +49,78 @@
 .divCajaComentarios{
     width: 35%;
     height: 450px;
-    background: burlywood;
+    /* background: burlywood; */
+    float: left;
+}
+
+/* cajita comentarios  */
+
+.divComentarioUp{
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid #F4F4F4;
+    float: left;
+}
+
+.divComentarioCenter{
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid #F4F4F4;
+    float: left;
+}
+
+.diuvComentarioLikes{
+    width: 100%;
+    height: 130px;
+    border-bottom: 1px solid #F4F4F4;
+    float: left;
+}
+
+.divCajaComentarios form{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #F4F4F4;
+    overflow: hidden;
+    float: left;
+}
+
+.divCajaComentarios form input{
+    height: 50px;
+    border: none;
+}
+
+.divCajaComentarios form input[type='text']{
+    width: 80%;
+    font-size: 12px;
+    text-align: center;
+}
+
+.divCajaComentarios form input[type='submit']{
+    width: 20%;
+    background: none;
+    color: #3DA1F1;
+    font-size: 13px;
+}
+
+.divComentarioUpImagen{
+    width: 13%;
+    margin-left: 3%;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50px;
+    margin-top: 15px;
+    float: left;
+}
+
+.divComentarioUpImagen img{
+    width: 100%;
+    height: 40px;
+}
+
+.divComentarioUp p{
+    /* width: 50%; */
+    margin-left: 2%;
+    margin-top: 25px;
+    font-size: 14px;
     float: left;
 }

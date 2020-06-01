@@ -28,6 +28,14 @@ const getImagenByIdImagen = (data) => {
     return fetch(process.env.REACT_APP_RUTA+'/getImagenByIdImagen/'+data,{method:'GET'}).then(data => data.json())
 }
 
+const addComent = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/addComent',{method:'POST',body:data}).then(data => data.json())
+}
+
+const getComentByIdImagen = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getComentByIdImagen/'+data, {method:'GET'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -36,5 +44,7 @@ export default
         addImagen,
         getImagenesById,
         getAllImagenes,
-        getImagenByIdImagen
+        getImagenByIdImagen,
+        addComent,
+        getComentByIdImagen
     }

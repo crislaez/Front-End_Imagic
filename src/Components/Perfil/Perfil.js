@@ -14,24 +14,22 @@ function Perfil(props){
 
     const [isMount, setIsMount] = useState(false); 
     const [arrayUsuario, setArrayUsuario] = useState([]);
-    const [arrayFotos, setArrayFotos] = useState([]); 
+    // const [arrayFotos, setArrayFotos] = useState([]); 
     const [ventanaComentario, setVentanaComentario] = useState(false);
     const [codigoImagen, setCodigoImagen] = useState('');
 
     useEffect(() =>{
         setIsMount(true);
         fetchDatosUsuarios();
-        // fetchFotosUsuario();
 
         return () => {
             setIsMount(false);
         }
-    },[])
+    },[]);
 
     const fetchDatosUsuarios = () => {
         Services.getUserById(localStorage.getItem('userKeyImagic'))
         .then(response => {
-            // console.log(response.data)
             setArrayUsuario(response.data[0])
         })
         .catch(err => console.log(err));
@@ -49,8 +47,10 @@ function Perfil(props){
        setCodigoImagen(event.target.dataset.codigo)
     }
     
-    console.log(props.arrayFotos);
+    // console.log(props.arrayFotos);
     // console.log(isMount)
+    // console.log(arrayUsuario.avatar)
+    // console.log(arrayUsuario.nombre_usuario)
     return(
         <article className='articlePerfil'>
 
@@ -103,7 +103,7 @@ function Perfil(props){
             {
                 ventanaComentario
                 ?
-                <Comentario handleClickComponenteComentario={handleClickComponenteComentario} codigoImagen={codigoImagen}></Comentario>
+                <Comentario handleClickComponenteComentario={handleClickComponenteComentario} codigoImagen={codigoImagen} avatar={arrayUsuario.avatar} nombre_usuario={arrayUsuario.nombre_usuario}></Comentario>
                 :
                 <div style={{display:'none'}}></div>
             }
