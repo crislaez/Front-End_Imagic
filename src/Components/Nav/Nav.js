@@ -5,10 +5,16 @@ import './Nav.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faLocationArrow ,faFileUpload} from '@fortawesome/free-solid-svg-icons'
 import {faHeart, faUser} from '@fortawesome/free-regular-svg-icons'
-import {faBlogger} from '@fortawesome/free-brands-svg-icons'
+// import {faBlogger} from '@fortawesome/free-brands-svg-icons'
 
 function Nav(props){
 
+    const cambioPerfil = (event) => {
+        const funcionCambiarVentana = props.funcionCambiarVentana
+        funcionCambiarVentana(event);
+        const funcionBuscarUsuarios = props.funcionBuscarUsuarios;
+        funcionBuscarUsuarios(localStorage.getItem('userKeyImagic'))
+    }
     return(
         <nav>
             <label data-codigo='bMessage' type='button' onClick={props.funcionCambiarVentana}>
@@ -23,7 +29,7 @@ function Nav(props){
                 <FontAwesomeIcon data-codigo='bLike' icon={faHeart}></FontAwesomeIcon>
             </label>
 
-            <label data-codigo='bPerfil' type='button' onClick={props.funcionCambiarVentana}>
+            <label data-codigo='bPerfil' type='button' onClick={cambioPerfil}>
                 <FontAwesomeIcon data-codigo='bPerfil' icon={faUser}></FontAwesomeIcon>
             </label>
         </nav>

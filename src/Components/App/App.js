@@ -4,10 +4,12 @@ import './App.css';
 //components
 import VentanaPrincipal from '../VentanaPrincipal/VentanaPrincipal'
 import Header from '../Header/Header';
-import Nav from '../Nav/Nav';
+// import Nav from '../Nav/Nav';
 import Section from '../Section/Section';
 import Footer from '../Footer/Footer';
-import ArrayExportado, {arrayDos,arrayDev} from '../../Context/Context';
+// import ArrayExportado, {arrayDos,arrayDev} from '../../Context/Context';
+//Services
+import Services from '../../Services/Services';
 
 function App(props){
 
@@ -16,13 +18,53 @@ function App(props){
     const [ventanaSolidcitudes, setVentanaSolicitudes] = useState(false); //variable que habre el propup de las soplicitudas
     const [ventanaSubirImagen, setVentanaSubirImmagen] = useState(false);//varaible que habre el popup para subir la imagen
 
+    const [arrayFotos, setArrayFotos] = useState([]); //array donde estan todas las fotos del usuario que se als pasaremos al section y a perfil
+    const [arrayUsuario, setArrayUsuario] = useState([]); //array donde estan los datos del usuario, el logueado y al que queramos ver el perfil
+    const [mostratUSuariOVisitante, setMostratUSuariOVisitante] = useState(true);//varaiable para el componente perfil, dependiendo de si es perfil propio o perfil de usuario
+
+
+
     useEffect( () => {
         if(localStorage.getItem('userNameImagic') && localStorage.getItem('userKeyImagic')){
             setLogueado(true);
+            fetchFotosUsuario(localStorage.getItem('userKeyImagic'))
+            fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
         }else{
             setLogueado(false);
         }
-    },[])
+    },[]);
+
+
+
+    const fetchFotosUsuario = (idUsuario) => {
+        Services.getImagenesById(idUsuario)
+        .then(response => {
+            setArrayFotos(response.data)
+        })
+        .catch(err => console.log(err));
+    }
+
+    const fetchDatosUsuarios = (id) => {
+        Services.getUserById(id)
+        .then(response => {
+            setArrayUsuario(response.data[0])
+        })
+        .catch(err => console.log(err));
+    }
+
+    const funcionBuscarUsuarios = (id) => {      
+
+        if(id !== localStorage.getItem('userKeyImagic')){
+            fetchFotosUsuario(id);
+            fetchDatosUsuarios(id)
+            setVentana('bPerfil');
+            setMostratUSuariOVisitante(false)
+        }else{
+            fetchFotosUsuario(localStorage.getItem('userKeyImagic'));
+            fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
+            setMostratUSuariOVisitante(true)
+        }     
+    }
 
     //funcion de logeo, cargara un componente de logeo o la web principal
     const funcionCambiarLogeadoAWeb = () => {
@@ -36,6 +78,7 @@ function App(props){
         }else{
             setVentana(event.target.dataset.codigo)
         }        
+        
     }
 
     //funcion que habre el popup de las solicitudes en el section
@@ -59,11 +102,17 @@ function App(props){
                     funcionCambiarVentana={funcionCambiarVentana} 
                     funcionVentanaSolicitudes={funcionVentanaSolicitudes}
                     funcionVentanaSubirImagen={funcionVentanaSubirImagen}
+                    funcionBuscarUsuarios={funcionBuscarUsuarios}
                     >
                     </Header>      
 
                     <Section 
                     ventana={ventana} 
+                    arrayUsuario={arrayUsuario}
+                    arrayFotos={arrayFotos}
+                    mostratUSuariOVisitante={mostratUSuariOVisitante}
+                    fetchFotosUsuario={fetchFotosUsuario}
+                    funcionBuscarUsuarios={funcionBuscarUsuarios}
                     ventanaSolidcitudes={ventanaSolidcitudes}
                     ventanaSubirImagen={ventanaSubirImagen}
                     funcionVentanaSubirImagen={funcionVentanaSubirImagen}

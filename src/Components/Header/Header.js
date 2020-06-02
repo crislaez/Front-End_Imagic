@@ -42,6 +42,7 @@ function Header(props){
             funcionCambiarVentana={props.funcionCambiarVentana} 
             funcionVentanaSolicitudes={props.funcionVentanaSolicitudes}
             funcionVentanaSubirImagen={props.funcionVentanaSubirImagen}
+            funcionBuscarUsuarios={props.funcionBuscarUsuarios}
             ></Nav>
         </header>
     )

@@ -57,6 +57,14 @@ function FotoInicio(props){
         setMensaje('');
     }
 
+    const handleClickIrAPerfil = (event) => {
+        // console.log(event.target.parentNode.dataset.codigousuario)
+        //llamamos a la funcion que esta en section para qeu cambia el componente perfil coim el usuario al que hemos hecho click
+        const funcionBuscarUsuarios = props.funcionBuscarUsuarios;
+        funcionBuscarUsuarios(event.target.parentNode.dataset.codigousuario);
+       
+    }
+console.log(arrayComentario)
     return(
         <div className='divFotosInicio' data-codigo={props.id_foto} data-codigousuario={props.id_usuario}>
                                 
@@ -81,8 +89,8 @@ function FotoInicio(props){
 
                 <div className='diCajaComentarioInicio'>
 
-                    <div className='divComentarioInicio'>
-                        <label>{props.nombre_usuario}:</label>
+                    <div data-codigousuario={props.id_usuario} className='divComentarioInicio'>
+                        <label onClick={handleClickIrAPerfil}>{props.nombre_usuario}:</label>
                         <p className='divComentarioInicioParrafo'>{props.texto_foto}</p>
                     </div>
                    
@@ -91,8 +99,8 @@ function FotoInicio(props){
                     ?
                     arrayComentario.map( (dato, key) => {
                         return(
-                            <div key={key} className='divComentarioInicio'>
-                                <label>{dato.nombre_usuario}:</label>
+                            <div key={key} className='divComentarioInicio' data-codigousuario={dato.id_usuario}>
+                                <label onClick={handleClickIrAPerfil}>{dato.nombre_usuario}:</label>
                                 <p className='divComentarioInicioParrafo'>{dato.texto_comentario}</p>
                             </div>
                         )

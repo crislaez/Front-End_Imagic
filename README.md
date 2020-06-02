@@ -1,6 +1,6 @@
 ## (front-end) IMAGIC
 
-IMAGIC es una red social para subir tus mejores fotos (en construccion)
+IMAGIC es una red social para subir tus mejores fotos (en construccion clon de instagram)
 
 <img src="https://github.com/crislaez/Front-End_Imagic/blob/master/src/Img/foto_proyecto.PNG" />
 <hr>
@@ -14,7 +14,7 @@ IMAGIC es una red social para subir tus mejores fotos (en construccion)
 
 ### Que hace el proyecto
 
-IMAGIC es una red social de fotos donde los usuarios pueden subir sus fotos mejores fotos, poder comentar
+IMAGIC es una red social de fotos donde los usuarios pueden subir sus mejores fotos, poder comentar
 , escribir por privado, otros usuarios tambien pueden comentar y dar su feedback (front-end hecho con React.js / Hooks)
  
 ### Donde pueden recibir ayuda los usuarios con el proyecto

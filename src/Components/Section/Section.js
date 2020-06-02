@@ -11,26 +11,53 @@ import Services from '../../Services/Services';
 
 function Section(props){
 
-    const [arrayFotos, setArrayFotos] = useState([]); 
+    // const [arrayFotos, setArrayFotos] = useState([]); 
+    // const [arrayUsuario, setArrayUsuario] = useState([]);
+    // const [mostratUSuariOVisitante, setMostratUSuariOVisitante] = useState(true)
 
     useEffect( () => {
-        fetchFotosUsuario()
+        // fetchFotosUsuario(localStorage.getItem('userKeyImagic'))
+        // fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
     },[])
 
-    const fetchFotosUsuario = () => {
-        Services.getImagenesById(localStorage.getItem('userKeyImagic'))
-        .then(response => {
-            setArrayFotos(response.data)
-        })
-        .catch(err => console.log(err));
-    }
+    // const fetchFotosUsuario = (idUsuario) => {
+    //     Services.getImagenesById(idUsuario)
+    //     .then(response => {
+    //         setArrayFotos(response.data)
+    //     })
+    //     .catch(err => console.log(err));
+    // }
+
+    // const fetchDatosUsuarios = (id) => {
+    //     Services.getUserById(id)
+    //     .then(response => {
+    //         setArrayUsuario(response.data[0])
+    //     })
+    //     .catch(err => console.log(err));
+    // }
+
+    // const funcionBuscarUsuarios = (id) => {        
+    //     if(id !== localStorage.getItem('userKeyImagic')){
+    //         fetchFotosUsuario(id);
+    //         fetchDatosUsuarios(id)
+    //         // console.log('diferentes')
+    //         setMostratUSuariOVisitante(false)
+    //     }else{
+    //         fetchFotosUsuario(localStorage.getItem('userKeyImagic'));
+    //         fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
+    //         // console.log('iguales')
+    //         setMostratUSuariOVisitante(true)
+    //     }     
+    // }
 
     return(
         <section>
             {
                 props.ventana === 'bMessage'
                 ?
-                    <Inicio></Inicio>
+                    <Inicio 
+                    funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+                    ></Inicio>
                 :
                 props.ventana === 'bExplore'
                 ?
@@ -38,7 +65,12 @@ function Section(props){
                 :
                 props.ventana === 'bPerfil'
                 ?
-                   <Perfil arrayFotos={arrayFotos}></Perfil>
+                   <Perfil 
+                   arrayFotos={props.arrayFotos} 
+                   arrayUsuario={props.arrayUsuario}
+                   funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+                   mostratUSuariOVisitante={props.mostratUSuariOVisitante}
+                   ></Perfil>
                 :
                 <div style={{display:'none'}}></div>
             }
@@ -46,7 +78,7 @@ function Section(props){
             {
                 props.ventanaSubirImagen
                 ?
-                <SubirImagen funcionVentanaSubirImagen={props.funcionVentanaSubirImagen} fetchFotosUsuario={fetchFotosUsuario}></SubirImagen>
+                <SubirImagen funcionVentanaSubirImagen={props.funcionVentanaSubirImagen} fetchFotosUsuario={props.fetchFotosUsuario}></SubirImagen>
                 :
                 <div styile={{display:'none'}}></div>
             }

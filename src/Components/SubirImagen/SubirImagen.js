@@ -34,7 +34,7 @@ function SubirImagen (props){
                 swal("Ok", "Foto subida correctamente", "success");
                 //llamamos a la funcion que esta en el section para que recarge el array de las imagenes
                 const fetchFotosUsuario = props.fetchFotosUsuario;
-                fetchFotosUsuario();
+                fetchFotosUsuario(localStorage.getItem('userKeyImagic'));
                 //llamamos a la funcion que esta en app para cerrar el pop up este de subir foto
                 const funcionVentanaSubirImagen = props.funcionVentanaSubirImagen;
                 funcionVentanaSubirImagen();

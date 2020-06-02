@@ -112,6 +112,7 @@
 .divComentarioInicio label{
     margin-left: 2%;
     font-weight: bold;
+    cursor: pointer;
     float: left;
 }
 

@@ -13,30 +13,20 @@ import Comentario from '../Comentario/Comentario'
 function Perfil(props){
 
     const [isMount, setIsMount] = useState(false); 
-    const [arrayUsuario, setArrayUsuario] = useState([]);
-    // const [arrayFotos, setArrayFotos] = useState([]); 
+
     const [ventanaComentario, setVentanaComentario] = useState(false);
     const [codigoImagen, setCodigoImagen] = useState('');
 
     useEffect(() =>{
         setIsMount(true);
-        fetchDatosUsuarios();
 
         return () => {
             setIsMount(false);
         }
     },[]);
 
-    const fetchDatosUsuarios = () => {
-        Services.getUserById(localStorage.getItem('userKeyImagic'))
-        .then(response => {
-            setArrayUsuario(response.data[0])
-        })
-        .catch(err => console.log(err));
-    }
-    
     const handleClickComponenteComentario = (event) => {
-
+ 
        if(ventanaComentario){
             document.body.style.overflow = 'scroll'
        }else{        
@@ -45,31 +35,46 @@ function Perfil(props){
        }
        setVentanaComentario(!ventanaComentario);
        setCodigoImagen(event.target.dataset.codigo)
-    }
+    };
     
     // console.log(props.arrayFotos);
     // console.log(isMount)
-    // console.log(arrayUsuario.avatar)
-    // console.log(arrayUsuario.nombre_usuario)
+
     return(
         <article className='articlePerfil'>
 
             <div className='cabeceraPerfil'>
                 <div className='divFotoPerfil'>
-                    <img src={arrayUsuario.avatar} alt={arrayUsuario.avatar}></img>
+                    <img src={props.arrayUsuario.avatar} alt={props.arrayUsuario.avatar}></img>
                 </div>
 
                 <div className='divDatosUsuariosPerfil'>
                     <div className='divNombreUsuarioPerfil'>
-                        <h3>{arrayUsuario.nombre_usuario}</h3>
+                        <h3>{props.arrayUsuario.nombre_usuario}</h3>
                     </div>
                     
                     <div className='divBotonEditar'>
+                    {
+                        props.mostratUSuariOVisitante
+                        ?
                         <input type='button' value='Editar perfil'></input>
+                        :
+                        <input type='button' value='Seguir' style={{background:'#3DA1F1', color:'white'}}></input>
+                        
+                    }
+                        
                     </div>
                     
                     <div className='divBotonEngranaje'>
+                    {
+                        props.mostratUSuariOVisitante
+                        ?
                         <label><FontAwesomeIcon icon={faCog}></FontAwesomeIcon></label>
+                        :
+                        // <input type='button' value='Enviar mensaje' style={{background:'#3DA1F1', color:'white'}}></input>
+                        <div style={{display:'none'}}></div>
+                    }
+                        
                     </div>
 
                     <div className='divDatosSeguidores'>
@@ -79,7 +84,7 @@ function Perfil(props){
                     </div>
 
                     <div className='divNombreUsuario'>
-                        <p><strong>{arrayUsuario.nombre_completo}</strong></p>
+                        <p><strong>{props.arrayUsuario.nombre_completo}</strong></p>
                     </div>
                 </div>
             </div>
@@ -103,7 +108,7 @@ function Perfil(props){
             {
                 ventanaComentario
                 ?
-                <Comentario handleClickComponenteComentario={handleClickComponenteComentario} codigoImagen={codigoImagen} avatar={arrayUsuario.avatar} nombre_usuario={arrayUsuario.nombre_usuario}></Comentario>
+                <Comentario funcionBuscarUsuarios={props.funcionBuscarUsuarios} handleClickComponenteComentario={handleClickComponenteComentario} codigoImagen={codigoImagen} avatar={props.arrayUsuario.avatar} nombre_usuario={props.arrayUsuario.nombre_usuario}></Comentario>
                 :
                 <div style={{display:'none'}}></div>
             }

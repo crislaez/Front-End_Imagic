@@ -154,13 +154,22 @@
 
 .divParrafoTexto{
     width: 80%;
-    min-height: 50px;
+    min-height: 35px;
+    font-size: 12px;
+    margin-top: 15px;
     /* background: burlywood; */
     margin-left: 3%;
     float: left;
 }
 
+.divParrafoTexto label{
+    font-weight: bold;
+    cursor: pointer;
+    float: left;
+}
+
 .divParrafoTexto p{
-    margin-top: 15px;
-    font-size: 13px;
+    height: 10px;
+    margin-left: 2%;
+    float: left;
 }

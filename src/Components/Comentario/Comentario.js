@@ -7,7 +7,7 @@ import Services from '../../Services/Services';
 import swal from 'sweetalert';
 //font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-regular-svg-icons'
+import {faHeart} from '@fortawesome/free-regular-svg-icons';
 
 function Comentario(props){
 
@@ -41,7 +41,8 @@ function Comentario(props){
             console.log(response)
             setArrayComentario(response.data)
         })
-    }
+    };
+    
     const handleSubmit = (event) => {
         event.preventDefault();       
 
@@ -68,6 +69,15 @@ function Comentario(props){
         setTextoComentario('');        
     };
 
+    const handleClickIrAPerfil = (event) => {
+        // console.log(event.target.parentNode.parentNode.dataset.codigousuario)
+        //llamamos a la funcion que esta en section para qeu cambia el componente perfil coim el usuario al que hemos hecho click
+        const funcionBuscarUsuarios = props.funcionBuscarUsuarios;
+        funcionBuscarUsuarios(event.target.parentNode.parentNode.dataset.codigousuario);
+        //y llamamos a la funcion que esta en perfil para cerrar esta ventana
+        const handleClickComponenteComentario = props.handleClickComponenteComentario;
+        handleClickComponenteComentario(event);
+    }
     // console.log(arrayFoto.foto);
     // console.log(props.codigoImagen)
     console.log(arrayComentario)
@@ -99,6 +109,7 @@ function Comentario(props){
                                 <img src={props.avatar} alt={props.nombre_usuario}></img>
                             </div>
                             <div className='divParrafoTexto'>
+                            <label>{props.nombre_usuario}:</label>
                                 <p>{arrayFoto.texto_foto}</p>
                             </div>                            
                         </div>
@@ -112,6 +123,7 @@ function Comentario(props){
                                         <img src={dato.avatar} alt={dato.avatar}></img>
                                     </div>
                                     <div className='divParrafoTexto'>
+                                        <label onClick={handleClickIrAPerfil}>{dato.nombre_usuario}:</label>
                                         <p>{dato.texto_comentario}</p>
                                     </div>                                    
                                 </div>

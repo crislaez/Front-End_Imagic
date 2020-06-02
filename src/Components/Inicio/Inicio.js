@@ -48,6 +48,7 @@ function Inicio(props){
                             nombre_usuario={dato.nombre_usuario} 
                             foto={dato.foto}
                             texto_foto={dato.texto_foto}
+                            funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
                             ></FotoInicio>
                         )
                     })
