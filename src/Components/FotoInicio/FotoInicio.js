@@ -68,12 +68,12 @@ console.log(arrayComentario)
     return(
         <div className='divFotosInicio' data-codigo={props.id_foto} data-codigousuario={props.id_usuario}>
                                 
-            <div className='divUsuario'>
+            <div className='divUsuario' data-codigousuario={props.id_usuario}>
                 <div className='divFotoPrincipalsuario'>
                     <img src={props.avatar} alt={props.avatar}></img>                                        
                 </div>
 
-                <h3>{props.nombre_usuario}</h3>
+                <h3 onClick={handleClickIrAPerfil}>{props.nombre_usuario}</h3>
             </div>
 
             <div className='divFotoUsuario'>

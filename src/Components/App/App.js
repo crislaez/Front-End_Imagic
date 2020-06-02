@@ -42,7 +42,7 @@ function App(props){
             setArrayFotos(response.data)
         })
         .catch(err => console.log(err));
-    }
+    };
 
     const fetchDatosUsuarios = (id) => {
         Services.getUserById(id)
@@ -50,7 +50,7 @@ function App(props){
             setArrayUsuario(response.data[0])
         })
         .catch(err => console.log(err));
-    }
+    };
 
     const funcionBuscarUsuarios = (id) => {      
 
@@ -64,12 +64,12 @@ function App(props){
             fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
             setMostratUSuariOVisitante(true)
         }     
-    }
+    };
 
     //funcion de logeo, cargara un componente de logeo o la web principal
     const funcionCambiarLogeadoAWeb = () => {
         setLogueado(!logueado);
-    }
+    };
 
     //funcion que carga una ventana en el section
     const funcionCambiarVentana = (event) => {
@@ -77,18 +77,19 @@ function App(props){
             setVentana(event.target.parentNode.dataset.codigo)
         }else{
             setVentana(event.target.dataset.codigo)
-        }        
-        
-    }
+        }                
+    };
 
     //funcion que habre el popup de las solicitudes en el section
     const funcionVentanaSolicitudes = () => {
         setVentanaSolicitudes(!ventanaSolidcitudes);
-    }
+    };
+
      //funcion para cargar el popup para subir la imagen
      const funcionVentanaSubirImagen = (event) => {
         setVentanaSubirImmagen(!ventanaSubirImagen);       
-     }
+     };
+
 
     return(
         <div>

@@ -114,6 +114,7 @@
     height: 40px;
     overflow: hidden;
     border-radius: 50px;
+    border:1px solid #E1E1E1; 
     margin-top: 15px;
     float: left;
 }
@@ -143,7 +144,8 @@
     height: 40px;
     margin-top: 5px;
     overflow: hidden;
-    border-radius: 50%;    
+    border-radius: 50%;
+    border:1px solid #E1E1E1;    
     float: left;
 }
 

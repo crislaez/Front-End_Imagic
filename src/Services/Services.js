@@ -36,6 +36,22 @@ const getComentByIdImagen = (data) => {
     return fetch(process.env.REACT_APP_RUTA+'/getComentByIdImagen/'+data, {method:'GET'}).then(data => data.json())
 }
 
+const getUserByUserName = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getUserByUserName/'+data, {method:'GET'}).then(data => data.json())
+}
+
+const addFollow = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/addFollow',{method:'POST', body:data}).then(data => data.json())
+}
+
+const deleteFollow = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/deleteFollow',{method:'DELETE',body:data}).then(data => data.json())
+}
+
+const checkFollow = (data1, data2) => {
+    return fetch(process.env.REACT_APP_RUTA+'/checkFollow/'+data1+'/'+data2, {method:'GET'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -46,5 +62,9 @@ export default
         getAllImagenes,
         getImagenByIdImagen,
         addComent,
-        getComentByIdImagen
+        getComentByIdImagen,
+        getUserByUserName,
+        addFollow,
+        deleteFollow,
+        checkFollow
     }
