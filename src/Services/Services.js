@@ -52,6 +52,17 @@ const checkFollow = (data1, data2) => {
     return fetch(process.env.REACT_APP_RUTA+'/checkFollow/'+data1+'/'+data2, {method:'GET'}).then(data => data.json())
 }
 
+const countPublicity = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/countPublicity/'+data,{method:'GET'}).then(data => data.json())
+}
+
+const countFollower = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/countFollower/'+data,{method:'GET'}).then(data => data.json())
+}
+const countFollow = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/countFollow/'+data,{method:'GET'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -66,5 +77,8 @@ export default
         getUserByUserName,
         addFollow,
         deleteFollow,
-        checkFollow
+        checkFollow,
+        countPublicity,
+        countFollower,
+        countFollow
     }

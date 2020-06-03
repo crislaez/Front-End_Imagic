@@ -8,7 +8,8 @@ import {faCog} from '@fortawesome/free-solid-svg-icons'
 import Services from '../../Services/Services';
 //components
 import FotoPerfil from '../FotoPerfil/FotoPerfil';
-import Comentario from '../Comentario/Comentario'
+import Comentario from '../Comentario/Comentario';
+import DivPublicaciones from '../DivPublicaciones/DivPublicaciones'
 //alertas
 import swal from 'sweetalert';
 
@@ -31,6 +32,7 @@ function Perfil(props){
     //se renderizara cada vez que se actualice la prop del indice del usaurio al que veamos el perfil
     },[props.arrayUsuario.id_usuario]);
 
+
     //funcion que comprobara si el usuario logueado sigue al usuario del que busca en el perfil
     const funcionComprobarSegumiento = (indiceNuevoUsuario) => {          
         Services.checkFollow(indiceNuevoUsuario ,localStorage.getItem('userKeyImagic'))
@@ -43,7 +45,7 @@ function Perfil(props){
                 setColorBotonSeguir(false)
             }
         })        
-    }
+    };
 
     const handleClickComponenteComentario = (event) => { 
        if(ventanaComentario){
@@ -96,9 +98,9 @@ function Perfil(props){
                         setColorBotonSeguir(false);
                     }                
                 });
+
                 swal("Ok", "Ya no le sigues", "success");
-            } else {
-              swal("Your imaginary file is safe!");
+
             }
           });
             
@@ -159,12 +161,8 @@ function Perfil(props){
                     }
                         
                     </div>
-
-                    <div className='divDatosSeguidores'>
-                        <p>0 publicaciones</p>
-                        <p>0 seguidores</p>
-                        <p>0 seguidores</p>
-                    </div>
+               
+                    <DivPublicaciones id_usuario={props.arrayUsuario.id_usuario}></DivPublicaciones>                                   
 
                     <div className='divNombreUsuario'>
                         <p><strong>{props.arrayUsuario.nombre_completo}</strong></p>

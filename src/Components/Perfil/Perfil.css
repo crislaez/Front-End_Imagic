@@ -91,19 +91,6 @@
     font-size: 25px;
 }
 
-.divDatosSeguidores{
-    width: 100%;
-    height: 50px;
-    margin-top: 10px;
-    /* background: brown; */
-    float: left;
-}
-
-.divDatosSeguidores p{
-    margin-top: 10px;
-    margin-left: 5%;
-    float: left;
-}
 
 .divNombreUsuario{
     width: 100%;
