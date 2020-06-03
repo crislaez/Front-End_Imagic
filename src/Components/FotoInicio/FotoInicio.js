@@ -28,7 +28,7 @@ function FotoInicio(props){
     const fetchComentariosIdFoto = () => {
         Services.getComentByIdImagen(props.id_foto)
         .then(response => {
-            console.log(response.data)
+            // console.log(response.data)
             setArrayComentario(response.data)
         })
     };
@@ -64,7 +64,7 @@ function FotoInicio(props){
         funcionBuscarUsuarios(event.target.parentNode.dataset.codigousuario);
        
     }
-console.log(arrayComentario)
+// console.log(arrayComentario)
     return(
         <div className='divFotosInicio' data-codigo={props.id_foto} data-codigousuario={props.id_usuario}>
                                 

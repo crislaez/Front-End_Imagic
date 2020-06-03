@@ -27,8 +27,8 @@ function App(props){
     useEffect( () => {
         if(localStorage.getItem('userNameImagic') && localStorage.getItem('userKeyImagic')){
             setLogueado(true);
-            fetchFotosUsuario(localStorage.getItem('userKeyImagic'))
-            fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
+            // fetchFotosUsuario(localStorage.getItem('userKeyImagic'))
+            // fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
         }else{
             setLogueado(false);
         }
@@ -53,7 +53,6 @@ function App(props){
     };
 
     const funcionBuscarUsuarios = (id) => {      
-
         if(id !== localStorage.getItem('userKeyImagic')){
             fetchFotosUsuario(id);
             fetchDatosUsuarios(id)

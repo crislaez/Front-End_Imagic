@@ -18,33 +18,37 @@ function Perfil(props){
 
     const [ventanaComentario, setVentanaComentario] = useState(false);
     const [codigoImagen, setCodigoImagen] = useState('');
-    const [colorBotonSeguir, setColorBotonSeguir] = useState(false)
-
+    const [colorBotonSeguir, setColorBotonSeguir] = useState(false);
+ 
 
     useEffect(() =>{
         setIsMount(true);
-        funcionComprobarSegumiento();
+        funcionComprobarSegumiento(props.arrayUsuario.id_usuario);        
 
         return () => {
             setIsMount(false);
         }
-    },[]);
+    //se renderizara cada vez que se actualice la prop del indice del usaurio al que veamos el perfil
+    },[props.arrayUsuario.id_usuario]);
 
-    const funcionComprobarSegumiento = () => {
-        console.log(props.arrayUsuario.id_usuario+'usuario invitado')
-        console.log(localStorage.getItem('userKeyImagic'))
-        Services.checkFollow(props.arrayUsuario.id_usuario ,localStorage.getItem('userKeyImagic'))
+    //funcion que comprobara si el usuario logueado sigue al usuario del que busca en el perfil
+    const funcionComprobarSegumiento = (indiceNuevoUsuario) => {          
+        Services.checkFollow(indiceNuevoUsuario ,localStorage.getItem('userKeyImagic'))
         .then(response => {
-            console.log(response)
-        })
+            if(response.data.toString()){
+                console.log('le sigues')
+                setColorBotonSeguir(true)
+            }else{
+                console.log('NO le sigues')
+                setColorBotonSeguir(false)
+            }
+        })        
     }
 
-    const handleClickComponenteComentario = (event) => {
- 
+    const handleClickComponenteComentario = (event) => { 
        if(ventanaComentario){
             document.body.style.overflow = 'scroll'
        }else{        
-            // window.scroll(0, 0);
             document.body.style.overflow = 'hidden'
        }
        setVentanaComentario(!ventanaComentario);
@@ -52,7 +56,6 @@ function Perfil(props){
     };
     
     const handleClickSeguir = (event) => {
-        // console.log(event.target.dataset.codigousuario)
         if(localStorage.getItem('userKeyImagic')){
             let data = new URLSearchParams(`id_seguir=${''}&id_usuario_seguido=${event.target.dataset.codigousuario}&id_usuario_seguidor=${localStorage.getItem('userKeyImagic')}`);
 
@@ -101,12 +104,18 @@ function Perfil(props){
             
         }else{
             swal ( "Oops" , "Debes estar logueado" , "error" );
-        }
-        
+        }        
+    };
+
+    const handleClickChat = () => {
+
     }
     // console.log(props.arrayFotos);
     // console.log(props.arrayUsuario.id_usuario)
-
+    // console.log(props.arrayUsuario.id_usuario+'usuario invitado')
+    // console.log(props.arrayUsuario.nombre_usuario)
+    // console.log(localStorage.getItem('userKeyImagic'))
+    // console.log(props.arrayUsuario )
     return(
         <article className='articlePerfil'>
 
@@ -131,7 +140,10 @@ function Perfil(props){
                         ?
                         <input data-codigousuario={props.arrayUsuario.id_usuario} type='button' value='Seguir' style={{background:'#3DA1F1', color:'white'}} onClick={handleClickSeguir}></input>
                         :
-                        <input data-codigousuario={props.arrayUsuario.id_usuario} type='button' value='Dejar de seguir' style={{background:'#FAFAFA', color:'black'}} onClick={handleClickDejarSeguir}></input>
+                        <div className='divBotonesDejarSeguirYEnviarMensaje'>
+                            <input data-codigousuario={props.arrayUsuario.id_usuario} type='button' value='Dejar de seguir' style={{background:'#FAFAFA', color:'black'}} onClick={handleClickDejarSeguir}></input>
+                            <input type='button' onChange={handleClickChat} value='Enviar mensaje' style={{background:'#3DA1F1', color:'white'}}></input>
+                        </div>                        
                     }
                         
                     </div>
