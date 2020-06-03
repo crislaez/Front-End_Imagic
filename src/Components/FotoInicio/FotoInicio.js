@@ -8,6 +8,8 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-regular-svg-icons';
 //alertas
 import swal from 'sweetalert';
+//components
+import DivMegusta from '../DivMegusta/DivMegusta'
 
 function FotoInicio(props){
     
@@ -37,7 +39,7 @@ function FotoInicio(props){
         event.preventDefault();
         if(localStorage.getItem('userKeyImagic')){
             if(!mensaje){
-                swal( "Oops","Rellena el mensaj","error" );
+                swal( "Oops","Rellena el mensaje","error" );
             }else{
                 const data = new URLSearchParams(`id_comentario=${''}&id_foto=${props.id_foto}&id_usuario=${parseInt(localStorage.getItem('userKeyImagic'))}&texto_comentario=${mensaje}`);
                 Services.addComent(data)
@@ -81,11 +83,8 @@ function FotoInicio(props){
             </div>
 
             <div className='divComentarios'>
-                <div className='divMeGusta'>
-                    <label data-codigo={props.id_usuario} type='button' >
-                        <FontAwesomeIcon data-codigo='bLike' icon={faHeart}></FontAwesomeIcon>
-                    </label>
-                </div>
+                
+                <DivMegusta id_usuario={props.id_usuario} bLike={'bLike'} id_foto={props.id_foto}></DivMegusta>
 
                 <div className='diCajaComentarioInicio'>
 

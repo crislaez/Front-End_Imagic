@@ -4,10 +4,8 @@ import './App.css';
 //components
 import VentanaPrincipal from '../VentanaPrincipal/VentanaPrincipal'
 import Header from '../Header/Header';
-// import Nav from '../Nav/Nav';
 import Section from '../Section/Section';
 import Footer from '../Footer/Footer';
-// import ArrayExportado, {arrayDos,arrayDev} from '../../Context/Context';
 //Services
 import Services from '../../Services/Services';
 

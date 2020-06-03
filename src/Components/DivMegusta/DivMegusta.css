@@ -1,0 +1,21 @@
+.divMeGusta{
+    width: 100%;
+    height: 55px;
+    border-bottom: 1px solid #F4F4F4;
+    float: left;
+}
+
+.divMeGusta label{
+    margin-left: 3%;
+    height: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+.divMeGusta p{
+    height: 20px;
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 12px;
+}

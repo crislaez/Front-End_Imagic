@@ -59,8 +59,17 @@ const countPublicity = (data) => {
 const countFollower = (data) => {
     return fetch(process.env.REACT_APP_RUTA+'/countFollower/'+data,{method:'GET'}).then(data => data.json())
 }
+
 const countFollow = (data) => {
     return fetch(process.env.REACT_APP_RUTA+'/countFollow/'+data,{method:'GET'}).then(data => data.json())
+}
+
+const addLike = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/addLike',{method:'POST',body:data}).then(data => data.json())
+}
+
+const getLikeById = (data, data2) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getLikeById/'+data+'/'+data2).then(data => data.json())
 }
 
 export default 
@@ -80,5 +89,7 @@ export default
         checkFollow,
         countPublicity,
         countFollower,
-        countFollow
+        countFollow,
+        addLike,
+        getLikeById
     }
