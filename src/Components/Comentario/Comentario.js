@@ -8,6 +8,8 @@ import swal from 'sweetalert';
 //font awesome
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-regular-svg-icons';
+//components
+import DivMegusta from '../DivMegusta/DivMegusta'
 
 function Comentario(props){
 
@@ -56,8 +58,8 @@ function Comentario(props){
                 .then(response => {
                     console.log(response)
                     if(response.success){
-                        swal("Ok", "Foto subida correctamente", "success");
-                        fetchComentariosIdFoto();
+                        swal("Ok", "Comentado", "success");
+                        fetchComentariosIdFoto();                                           
                     }
                 })           
                 .catch(err => console.log(err))    
@@ -80,7 +82,7 @@ function Comentario(props){
     }
     // console.log(arrayFoto.foto);
     // console.log(props.codigoImagen)
-    console.log(arrayComentario)
+    // console.log(arrayComentario)
     return(
         <div className='divComentario' >
             <div className='botonAtras'>
@@ -134,12 +136,8 @@ function Comentario(props){
                     }
                     </div>
 
-                    <div className='diuvComentarioLikes'>
-                        <label data-codigo={arrayFoto.id_foto} type='button' >
-                            <FontAwesomeIcon data-codigo='bLike' icon={faHeart}></FontAwesomeIcon>
-                        </label>
-                    </div>
-                    
+                    <DivMegusta id_usuario={arrayFoto.id_usuario} bLike={'bLike'} id_foto={arrayFoto.id_foto}></DivMegusta>
+                 
                     <form onSubmit={handleSubmit} action='' method='' encType='multipart/form-data'>
                         <input type='text' value={textoComentario} onChange={(params) => setTextoComentario(params.target.value)} placeholder='Agrega un comentario...'></input>
                         <input type='submit' value='Publicar'></input>
@@ -153,3 +151,4 @@ function Comentario(props){
 }
 
 export default Comentario;
+// <DivMegusta id_usuario={arrayFoto.id_usuario} bLike={'bLike'} id_foto={arrayFoto.id_foto}></DivMegusta>

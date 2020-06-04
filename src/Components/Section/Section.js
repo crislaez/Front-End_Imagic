@@ -6,15 +6,13 @@ import Perfil from '../Perfil/Perfil';
 import Inicio from '../Inicio/Inicio';
 import Solicitudes from '../Solicitudes/Solicitudes';
 import SubirImagen from '../SubirImagen/SubirImagen'
+import Chat from '../Chat/Chat';
 // //Services
 // import Services from '../../Services/Services';
 
 function Section(props){
 
-
-    useEffect( () => {
-
-    },[])
+    
 
     return(
         <section>
@@ -36,7 +34,16 @@ function Section(props){
                    arrayUsuario={props.arrayUsuario}
                    funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
                    mostratUSuariOVisitante={props.mostratUSuariOVisitante}
+                   funcionCambiarVentana={props.funcionCambiarVentana}
+                   funcionUsuarioChat={props.funcionUsuarioChat}
                    ></Perfil>
+                :
+                props.ventana === 'bChat'
+                ?
+                <Chat 
+                idUsuarioChat={props.idUsuarioChat} 
+                funcionUsuarioChat={props.funcionUsuarioChat}
+                ></Chat>
                 :
                 <div style={{display:'none'}}></div>
             }

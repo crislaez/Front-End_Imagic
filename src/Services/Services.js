@@ -72,6 +72,18 @@ const getLikeById = (data, data2) => {
     return fetch(process.env.REACT_APP_RUTA+'/getLikeById/'+data+'/'+data2).then(data => data.json())
 }
 
+const deleteLike = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/deleteLike',{method:'POST',body:data}).then(data => data.json())
+}
+
+const getLikeByIdFoto = (data) => {
+     return fetch(process.env.REACT_APP_RUTA+'/getLikeByIdFoto/'+data,{method:'GET'}).then(data => data.json())
+}
+
+const addFollowByIdUser = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/addFollowByIdUser/'+data,{method:'GET'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -91,5 +103,8 @@ export default
         countFollower,
         countFollow,
         addLike,
-        getLikeById
+        getLikeById,
+        deleteLike,
+        getLikeByIdFoto,
+        addFollowByIdUser
     }

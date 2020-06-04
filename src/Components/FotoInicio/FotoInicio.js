@@ -9,7 +9,7 @@ import {faHeart} from '@fortawesome/free-regular-svg-icons';
 //alertas
 import swal from 'sweetalert';
 //components
-import DivMegusta from '../DivMegusta/DivMegusta'
+import DivMegusta from '../DivMegusta/DivMegusta';
 
 function FotoInicio(props){
     

@@ -24,8 +24,8 @@ function Perfil(props){
 
     useEffect(() =>{
         setIsMount(true);
-        funcionComprobarSegumiento(props.arrayUsuario.id_usuario);        
-
+        //funcion que esta en section
+        funcionComprobarSegumiento(props.arrayUsuario.id_usuario);   
         return () => {
             setIsMount(false);
         }
@@ -38,10 +38,10 @@ function Perfil(props){
         Services.checkFollow(indiceNuevoUsuario ,localStorage.getItem('userKeyImagic'))
         .then(response => {
             if(response.data.toString()){
-                console.log('le sigues')
+                // console.log('le sigues')
                 setColorBotonSeguir(true)
             }else{
-                console.log('NO le sigues')
+                // console.log('NO le sigues')
                 setColorBotonSeguir(false)
             }
         })        
@@ -72,6 +72,7 @@ function Perfil(props){
             
         }else{
             swal ( "Oops" , "Debes estar logueado" , "error" );
+            window.location.reload(true);
         }        
     };
 
@@ -98,9 +99,7 @@ function Perfil(props){
                         setColorBotonSeguir(false);
                     }                
                 });
-
                 swal("Ok", "Ya no le sigues", "success");
-
             }
           });
             
@@ -108,16 +107,13 @@ function Perfil(props){
             swal ( "Oops" , "Debes estar logueado" , "error" );
         }        
     };
+    // funcionUsuarioChat
 
-    const handleClickChat = () => {
+    const handleClickChat = () => {        
+        const funcionUsuarioChat = props.funcionUsuarioChat
+        funcionUsuarioChat(props.arrayUsuario.id_usuario);
+    };
 
-    }
-    // console.log(props.arrayFotos);
-    // console.log(props.arrayUsuario.id_usuario)
-    // console.log(props.arrayUsuario.id_usuario+'usuario invitado')
-    // console.log(props.arrayUsuario.nombre_usuario)
-    // console.log(localStorage.getItem('userKeyImagic'))
-    // console.log(props.arrayUsuario )
     return(
         <article className='articlePerfil'>
 
@@ -144,7 +140,7 @@ function Perfil(props){
                         :
                         <div className='divBotonesDejarSeguirYEnviarMensaje'>
                             <input data-codigousuario={props.arrayUsuario.id_usuario} type='button' value='Dejar de seguir' style={{background:'#FAFAFA', color:'black'}} onClick={handleClickDejarSeguir}></input>
-                            <input type='button' onChange={handleClickChat} value='Enviar mensaje' style={{background:'#3DA1F1', color:'white'}}></input>
+                            <input data-codigo='bChat' type='button' onClick={handleClickChat} value='Enviar mensaje' style={{background:'#3DA1F1', color:'white'}}></input>
                         </div>                        
                     }
                         
@@ -156,7 +152,6 @@ function Perfil(props){
                         ?
                         <label><FontAwesomeIcon icon={faCog}></FontAwesomeIcon></label>
                         :
-                        // <input type='button' value='Enviar mensaje' style={{background:'#3DA1F1', color:'white'}}></input>
                         <div style={{display:'none'}}></div>
                     }
                         
@@ -189,7 +184,12 @@ function Perfil(props){
             {
                 ventanaComentario
                 ?
-                <Comentario funcionBuscarUsuarios={props.funcionBuscarUsuarios} handleClickComponenteComentario={handleClickComponenteComentario} codigoImagen={codigoImagen} avatar={props.arrayUsuario.avatar} nombre_usuario={props.arrayUsuario.nombre_usuario}></Comentario>
+                <Comentario 
+                funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+                handleClickComponenteComentario={handleClickComponenteComentario} 
+                codigoImagen={codigoImagen} avatar={props.arrayUsuario.avatar} 
+                nombre_usuario={props.arrayUsuario.nombre_usuario} 
+                ></Comentario>
                 :
                 <div style={{display:'none'}}></div>
             }

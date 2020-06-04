@@ -20,13 +20,12 @@ function App(props){
     const [arrayUsuario, setArrayUsuario] = useState([]); //array donde estan los datos del usuario, el logueado y al que queramos ver el perfil
     const [mostratUSuariOVisitante, setMostratUSuariOVisitante] = useState(true);//varaiable para el componente perfil, dependiendo de si es perfil propio o perfil de usuario
 
+    const [idUsuarioChat, setIdeUsuarioChat] = useState('')
 
 
     useEffect( () => {
         if(localStorage.getItem('userNameImagic') && localStorage.getItem('userKeyImagic')){
             setLogueado(true);
-            // fetchFotosUsuario(localStorage.getItem('userKeyImagic'))
-            // fetchDatosUsuarios(localStorage.getItem('userKeyImagic'))
         }else{
             setLogueado(false);
         }
@@ -70,6 +69,7 @@ function App(props){
 
     //funcion que carga una ventana en el section
     const funcionCambiarVentana = (event) => {
+        
         if(event.target.tagName === 'path'){
             setVentana(event.target.parentNode.dataset.codigo)
         }else{
@@ -85,8 +85,13 @@ function App(props){
      //funcion para cargar el popup para subir la imagen
      const funcionVentanaSubirImagen = (event) => {
         setVentanaSubirImmagen(!ventanaSubirImagen);       
-     };
+     };     
 
+    //funcion para chatear con usuario
+    const funcionUsuarioChat = (id) =>{
+        setIdeUsuarioChat(id)
+        setVentana('bChat')
+    }
 
     return(
         <div>
@@ -113,7 +118,10 @@ function App(props){
                     funcionBuscarUsuarios={funcionBuscarUsuarios}
                     ventanaSolidcitudes={ventanaSolidcitudes}
                     ventanaSubirImagen={ventanaSubirImagen}
+                    funcionCambiarVentana={funcionCambiarVentana}
                     funcionVentanaSubirImagen={funcionVentanaSubirImagen}
+                    funcionUsuarioChat={funcionUsuarioChat}
+                    idUsuarioChat={idUsuarioChat}
                     ></Section>
 
                     <Footer></Footer>
