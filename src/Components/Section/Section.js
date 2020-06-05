@@ -40,10 +40,10 @@ function Section(props){
                 :
                 props.ventana === 'bChat'
                 ?
-                <Chat 
-                idUsuarioChat={props.idUsuarioChat} 
-                funcionUsuarioChat={props.funcionUsuarioChat}
-                ></Chat>
+                    <Chat 
+                    idUsuarioChat={props.idUsuarioChat} 
+                    funcionUsuarioChat={props.funcionUsuarioChat}
+                    ></Chat>
                 :
                 <div style={{display:'none'}}></div>
             }

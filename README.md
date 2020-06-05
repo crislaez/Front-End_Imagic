@@ -17,6 +17,8 @@ IMAGIC es una red social para subir tus mejores fotos (en construccion clon de i
 <img src="https://github.com/crislaez/Front-End_Imagic/blob/master/src/Img/foto_proyecto_7.PNG" />
 <hr>
 <img src="https://github.com/crislaez/Front-End_Imagic/blob/master/src/Img/foto_proyecto_8.PNG" />
+<hr>
+<img src="https://github.com/crislaez/Front-End_Imagic/blob/master/src/Img/foto_proyecto_9.PNG" />
 
 ### Que hace el proyecto
 

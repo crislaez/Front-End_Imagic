@@ -30,7 +30,7 @@
 
 .divUsuarios{
     width: 100%;
-    height: 535px;
+    height: 535px;    
     overflow-y: scroll;
     float: left;
 }
@@ -45,9 +45,10 @@
     float: left;
 }
 
+
 .divUsuariosChat{
     width: 100%;
-    min-height: 70px;
+    min-height: 70px;    
     border-bottom: 1px solid #FCFCFC;
     float: left;
 }
@@ -83,9 +84,9 @@
 }
 
 .divUsuarioChatearImagen{
-    width: 10%;
-    height: 50px;
-    margin-top: 5px;
+    width: 7%;
+    height: 40px;
+    margin-top: 10px;
     overflow: hidden;
     border-radius: 50%;
     border: 1px solid #CFCFCF;
@@ -95,19 +96,95 @@
 
 .divUsuarioChatearImagen img{
     width: 100%;
-    height: 50px;
+    height: 40px;
 }
 
 .divUsuarioChatearNombre{
     width: 80%;
     height: 50px;
     margin-left: 2%;
-    /* background: yellowgreen; */
     float: left;
 }
 
 .divUsuarioChatearNombre label{
     margin-top: 15px;
-    /* font-weight: bold; */
     font-size: 15px;
+}
+
+.contenedorChat{
+    width: 100%;
+    height: 470px;
+    overflow-y: scroll;
+    /* background: burlywood; */
+    float: left;
+}
+
+.divUsuarios form{
+    width: 92%;
+    margin-left: 4%;
+    height: 50px;
+    margin-top: 5px;
+    border-radius: 20px;
+    border: 1px solid #CFCFCF;
+    /* background: gold; */
+    overflow: hidden;
+    float: left;
+}
+
+.divUsuarios form input[type='text']{
+    width: 85%;
+    height: 50px;
+    border: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+.divUsuarios form input[type='submit']{
+    width: 15%;
+    height: 50px;
+    background: none;
+    border: none;
+    color: #5AAFFC;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* divmensajes */
+
+.divCajaMensaje{
+    width: 50%;
+    min-height: 50px;
+    /* border: 1px solid #CFCFCF; */
+    margin-left: 1%;
+    margin-top: 20px;
+    border-radius: 10px;
+    float: left;
+}
+
+.divImagenChat{
+    width: 10%;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #CFCFCF;
+    overflow: hidden;
+    float: left;
+}
+
+.divImagenChat img{
+    width: 100%;
+    height: 30px;
+}
+
+.divMensaje{
+    width: 85%;
+    min-height: 50px;
+    border: 1px solid #F1F1F1;
+    margin-left: 2%;
+    border-radius: 15px;
+    font-size: 13px;
+    float: left;
+}
+
+.divMensaje p{
+    text-align: center;
 }

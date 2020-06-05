@@ -16,6 +16,7 @@ function SubirImagen (props){
 
         if(!localStorage.getItem('userKeyImagic')){
             swal ( "Oops" , "Debes estar logueado" , "error" );
+            window.location.reload(true)
         }else if(!imagen){
             swal ( "Oops" , "Selecciona una imagen" , "error" );
         }else if(!textoImagen){
