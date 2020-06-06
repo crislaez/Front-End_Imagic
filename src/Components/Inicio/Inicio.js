@@ -5,6 +5,8 @@ import './Inicio.css';
 import Services from '../../Services/Services';
 //componente
 import FotoInicio from '../FotoInicio/FotoInicio';
+import Historial from '../Historial/Historial';
+import InicioDerecha from '../InicioDerecha/InicioDerecha';
 
 function Inicio(props){
     
@@ -26,14 +28,16 @@ function Inicio(props){
             console.log(response.data)
             setArrayTodasFotos(response.data)
         })
-    }
+    };
 
     return(
         <article className='articlePerfil'>
             
             <div className='divContenedorLeft'>
-                <div className='divHistorial'>
-                </div>
+                
+            <Historial
+            funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+            ></Historial>
 
                 {
                     isMount && arrayTodasFotos.toString()
@@ -57,8 +61,10 @@ function Inicio(props){
                 }
             </div>
 
-            <div className='divContenedorRight'>
-            </div>
+            <InicioDerecha
+            funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+            ></InicioDerecha>
+            
 
         </article>
     )

@@ -4,8 +4,8 @@ import './FotoInicio.css';
 //Services
 import Services from '../../Services/Services';
 //font awesome
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-regular-svg-icons';
+// import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+// import {faHeart} from '@fortawesome/free-regular-svg-icons';
 //alertas
 import swal from 'sweetalert';
 //components
@@ -60,13 +60,13 @@ function FotoInicio(props){
     }
 
     const handleClickIrAPerfil = (event) => {
-        // console.log(event.target.parentNode.dataset.codigousuario)
         //llamamos a la funcion que esta en section para qeu cambia el componente perfil coim el usuario al que hemos hecho click
         const funcionBuscarUsuarios = props.funcionBuscarUsuarios;
         funcionBuscarUsuarios(event.target.parentNode.dataset.codigousuario);
        
     }
 // console.log(arrayComentario)
+
     return(
         <div className='divFotosInicio' data-codigo={props.id_foto} data-codigousuario={props.id_usuario}>
                                 

@@ -91,6 +91,14 @@ const addChat = (data) => {
 const getChatByUsers = (id1, id2) => {
     return fetch(process.env.REACT_APP_RUTA+'/getChatByUsers/'+id1+'/'+id2,{method:'GET'}).then(data => data.json())
 }
+
+const getUserNotFolow = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/getUserNotFolow/'+data, {method:'GET'}).then(data => data.json())
+}
+
+const getAllUser = () => {
+    return fetch(process.env.REACT_APP_RUTA+'/getAllUser',{method:'GET'}).then(data => data.json())
+}
 export default 
     {
         addUser,
@@ -115,5 +123,7 @@ export default
         getLikeByIdFoto,
         addFollowByIdUser,
         addChat,
-        getChatByUsers
+        getChatByUsers,
+        getUserNotFolow,
+        getAllUser
     }

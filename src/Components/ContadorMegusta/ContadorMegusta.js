@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 //css
 import './ContadorMegusta.css';
-import Services from '../../Services/Services';
+// import Services from '../../Services/Services';
 
 function ContadorMegusta(props){
     

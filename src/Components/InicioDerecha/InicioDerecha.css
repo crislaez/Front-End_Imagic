@@ -1,0 +1,119 @@
+.divContenedorRight{
+    width: 25%;
+    height: 500px;
+    margin-left: 2%;
+    margin-top: 50px;
+    /* border: 1px solid grey; */
+    float: left;
+}
+
+.divCabeceraAside{
+    width: 100%;
+    height: 90px;
+    /* border-bottom: 1px solid gray; */
+    float: left;
+}
+
+.divContenedor{
+    width: 100%;
+    height: 410px;
+    overflow-y: scroll;
+    float: left;
+}
+
+.divCabeceraImagen{
+    width: 17%;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid gray;
+    margin-left: 2%;
+    margin-top: 15px;
+    float: left;
+}
+
+.divCabeceraImagen img{
+    width: 100%;
+    height: 60px;
+}
+
+.divCabeceraTitulo{
+    width: 75%;
+    margin-left: 2%;
+    min-height: 50px;
+    margin-top: 30px;
+    /* background: brown; */
+    float: left;
+}
+
+.divCabeceraAside p{
+    width: 55%;
+    height: 0px;
+    float: left;
+    font-size: 11px;
+}
+
+.pSuguerencias{
+    color: gray;
+    margin-left: 5%;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.divUsuarioNoSeguidos{
+    width: 100%;
+    margin-top: 5px;
+    height: 50px;
+}
+
+.divUsuarioNoSegudiImagen{
+    width: 12%;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 2%;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 1px solid gray;
+    float: left;
+} 
+
+.divUsuarioNoSegudiImagen img{
+    width: 100%;
+    height: 40px;
+}
+
+.parrafoNoSeguidos{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.divUsuariosNoSeguidosParrafo{
+    width: 50%;
+    height: 40px;
+    /* background-color: goldenrod; */
+    margin-left: 2%;
+    margin-top: 10px;
+    float: left;
+}
+
+.divUsuariosNoSeguidosParrafo p{
+    font-size: 10px;
+    height: 5px;
+}
+
+.divUsuriosBotonSeguir{
+    width: 12%;
+    height: 50px;
+    /* background:greenyellow; */
+    float: right;
+}
+
+.divUsuriosBotonSeguir input{
+    height: 100%;
+    height: 30px;
+    font-size: 11px;
+    background: none;
+    color: #5AAFFC;
+    border: none;
+    margin-top: 10px;
+}

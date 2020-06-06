@@ -1,0 +1,40 @@
+.divHistorial{
+    width: 100%;
+    height: 100px;
+    background: white;
+    border:1px solid #E1E1E1;
+    margin-top: 50px;
+    overflow-x: scroll;
+    float: left;
+}
+
+.divDatosHistorial{
+    width: 70px;
+    height: 70px;
+    margin-top: 5px;
+    /* border: 1px solid gray; */
+    overflow: hidden;
+    margin-left: 5px;
+    float: left;
+}
+
+.divImagenHistorial{
+    width: 90%;
+    margin-left: 5%;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid #EC2323;
+    height: 55px;
+}
+
+.divImagenHistorial img{
+    width: 100%;
+    height: 55px;
+}
+
+.divDatosHistorial p{
+    font-size: 10px;
+    text-align: center;
+    margin-top: 1px;
+    cursor: pointer;
+}

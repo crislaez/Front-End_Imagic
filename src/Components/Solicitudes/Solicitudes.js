@@ -1,4 +1,4 @@
-import React, {usseState, useEffect} from 'react';
+import React from 'react';
 //css
 import './Solicitudes.css'
 
