@@ -6,24 +6,8 @@
 }
 
 .divContenedorLeft{
-    width: 40%;
+    width: 41%;
     min-height: 550px;
     margin-left: 19%;
-    /* background: white; */
     float: left;
 }
-
-/* .divHistorial{
-    width: 100%;
-    height: 100px;
-    background: white;
-    border:1px solid #E1E1E1;
-    margin-top: 50px;
-    float: left;
-} */
-/* 
-.divContenedorRight{
-    width: 25%;
-    height: 550px;
-    float: left;
-} */

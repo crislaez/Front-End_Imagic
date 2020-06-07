@@ -1,16 +1,17 @@
 .divContenedorRight{
-    width: 25%;
+    width: 20%;
     height: 500px;
-    margin-left: 2%;
+    /* margin-left: 2%; */
+    margin-left: 61%;
     margin-top: 50px;
     /* border: 1px solid grey; */
-    float: left;
+    /* float: left; */
+    position: fixed;
 }
 
 .divCabeceraAside{
     width: 100%;
     height: 90px;
-    /* border-bottom: 1px solid gray; */
     float: left;
 }
 
@@ -23,7 +24,7 @@
 
 .divCabeceraImagen{
     width: 17%;
-    height: 60px;
+    height: 50px;
     overflow: hidden;
     border-radius: 50%;
     border: 1px solid gray;
@@ -34,7 +35,7 @@
 
 .divCabeceraImagen img{
     width: 100%;
-    height: 60px;
+    height: 50px;
 }
 
 .divCabeceraTitulo{
@@ -68,7 +69,7 @@
 
 .divUsuarioNoSegudiImagen{
     width: 12%;
-    height: 40px;
+    height: 35px;
     margin-top: 5px;
     margin-left: 2%;
     overflow: hidden;
@@ -79,7 +80,7 @@
 
 .divUsuarioNoSegudiImagen img{
     width: 100%;
-    height: 40px;
+    height: 35px;
 }
 
 .parrafoNoSeguidos{
@@ -102,7 +103,7 @@
 }
 
 .divUsuriosBotonSeguir{
-    width: 12%;
+    width: 17%;
     height: 50px;
     /* background:greenyellow; */
     float: right;
@@ -115,5 +116,6 @@
     background: none;
     color: #5AAFFC;
     border: none;
+    font-weight: bold;
     margin-top: 10px;
 }

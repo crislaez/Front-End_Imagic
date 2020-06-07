@@ -124,7 +124,7 @@ function App(props){
                     idUsuarioChat={idUsuarioChat}
                     ></Section>
 
-                    <Footer></Footer>
+                   
                 </div>
             }            
         </div>
@@ -132,3 +132,5 @@ function App(props){
 }
 
 export default App;
+
+// <Footer></Footer>

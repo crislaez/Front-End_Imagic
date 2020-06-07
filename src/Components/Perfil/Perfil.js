@@ -9,7 +9,8 @@ import Services from '../../Services/Services';
 //components
 import FotoPerfil from '../FotoPerfil/FotoPerfil';
 import Comentario from '../Comentario/Comentario';
-import DivPublicaciones from '../DivPublicaciones/DivPublicaciones'
+import DivPublicaciones from '../DivPublicaciones/DivPublicaciones';
+import Engranaje from '../Engranaje/Engranaje';
 //alertas
 import swal from 'sweetalert';
 
@@ -20,6 +21,7 @@ function Perfil(props){
     const [ventanaComentario, setVentanaComentario] = useState(false);
     const [codigoImagen, setCodigoImagen] = useState('');
     const [colorBotonSeguir, setColorBotonSeguir] = useState(false);
+    const [aparecerDivEngranaje, setAparecerDivEngranaje] = useState(false);
  
 
     useEffect(() =>{
@@ -114,6 +116,11 @@ function Perfil(props){
         funcionUsuarioChat(props.arrayUsuario.id_usuario);
     };
 
+    //funcion que hara aparecer la ventana engranaje para cerrar sesion
+    const handleClickEngranaje = () => {
+        setAparecerDivEngranaje(!aparecerDivEngranaje);
+    }
+
     return(
         <article className='articlePerfil'>
 
@@ -127,6 +134,15 @@ function Perfil(props){
                         <h3>{props.arrayUsuario.nombre_usuario}</h3>
                     </div>
                     
+                    {
+                        aparecerDivEngranaje
+                        ?
+                        <Engranaje handleClickEngranaje={handleClickEngranaje}></Engranaje>
+                        :
+                        <div style={{display:'none'}}></div>
+                    }
+                    
+
                     <div className='divBotonEditar'>
                     {
                         
@@ -150,7 +166,7 @@ function Perfil(props){
                     {
                         props.mostratUSuariOVisitante
                         ?
-                        <label><FontAwesomeIcon icon={faCog}></FontAwesomeIcon></label>
+                        <label onClick={handleClickEngranaje}><FontAwesomeIcon icon={faCog}></FontAwesomeIcon></label>
                         :
                         <div style={{display:'none'}}></div>
                     }

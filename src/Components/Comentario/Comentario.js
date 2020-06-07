@@ -5,11 +5,9 @@ import './Comentario.css'
 import Services from '../../Services/Services';
 //alertas
 import swal from 'sweetalert';
-//font awesome
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-regular-svg-icons';
 //components
-import DivMegusta from '../DivMegusta/DivMegusta'
+import DivMegusta from '../DivMegusta/DivMegusta';
+import ComentarioIndividual from '../ComentarioIndividual/ComentarioIndividual'
 
 function Comentario(props){
 
@@ -71,15 +69,6 @@ function Comentario(props){
         setTextoComentario('');        
     };
 
-    const handleClickIrAPerfil = (event) => {
-        // console.log(event.target.parentNode.parentNode.dataset.codigousuario)
-        //llamamos a la funcion que esta en section para qeu cambia el componente perfil coim el usuario al que hemos hecho click
-        const funcionBuscarUsuarios = props.funcionBuscarUsuarios;
-        funcionBuscarUsuarios(event.target.parentNode.parentNode.dataset.codigousuario);
-        //y llamamos a la funcion que esta en perfil para cerrar esta ventana
-        const handleClickComponenteComentario = props.handleClickComponenteComentario;
-        handleClickComponenteComentario(event);
-    }
     // console.log(arrayFoto.foto);
     // console.log(props.codigoImagen)
     // console.log(arrayComentario)
@@ -120,15 +109,17 @@ function Comentario(props){
                         ?
                         arrayComentario.map( (dato, key) => {
                             return(
-                                <div className='textoComentario' key={key} data-codigo={dato.id_comentario} data-codigousuario={dato.id_usuario}>
-                                    <div className='divimagenComentario'>
-                                        <img src={dato.avatar} alt={dato.avatar}></img>
-                                    </div>
-                                    <div className='divParrafoTexto'>
-                                        <label onClick={handleClickIrAPerfil}>{dato.nombre_usuario}:</label>
-                                        <p>{dato.texto_comentario}</p>
-                                    </div>                                    
-                                </div>
+                               <ComentarioIndividual 
+                               key={key} 
+                               id_comentario={dato.id_comentario} 
+                               id_usuario={dato.id_usuario} 
+                               avatar={dato.avatar}
+                               nombre_usuario={props.nombre_usuario}
+                               texto_comentario={dato.texto_comentario}
+                               funcionBuscarUsuarios={props.funcionBuscarUsuarios}
+                               handleClickComponenteComentario={props.handleClickComponenteComentario}
+                               fetchComentariosIdFoto={fetchComentariosIdFoto}
+                               ></ComentarioIndividual>
                             )
                         })
                         :

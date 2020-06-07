@@ -99,6 +99,11 @@ const getUserNotFolow = (data) => {
 const getAllUser = () => {
     return fetch(process.env.REACT_APP_RUTA+'/getAllUser',{method:'GET'}).then(data => data.json())
 }
+
+const deleteComent = (data) => {
+    return fetch(process.env.REACT_APP_RUTA+'/deleteComent/'+data,{method:'DELETE'}).then(data => data.json())
+}
+
 export default 
     {
         addUser,
@@ -125,5 +130,6 @@ export default
         addChat,
         getChatByUsers,
         getUserNotFolow,
-        getAllUser
+        getAllUser,
+        deleteComent
     }
