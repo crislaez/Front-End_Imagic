@@ -114,7 +114,7 @@ function Comentario(props){
                                id_comentario={dato.id_comentario} 
                                id_usuario={dato.id_usuario} 
                                avatar={dato.avatar}
-                               nombre_usuario={props.nombre_usuario}
+                               nombre_usuario={dato.nombre_usuario}
                                texto_comentario={dato.texto_comentario}
                                funcionBuscarUsuarios={props.funcionBuscarUsuarios}
                                handleClickComponenteComentario={props.handleClickComponenteComentario}
