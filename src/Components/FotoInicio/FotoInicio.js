@@ -46,7 +46,7 @@ function FotoInicio(props){
                 .then(response => {
                     console.log(response)
                     if(response.success){
-                        swal("Ok", "Foto subida correctamente", "success");
+                        swal("Ok", "comentario subido correctamente", "success");
                         fetchComentariosIdFoto();
                     }
                 })           

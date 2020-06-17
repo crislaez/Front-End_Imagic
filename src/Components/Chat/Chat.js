@@ -115,7 +115,7 @@ function Chat(props){
                     <p>Direct</p>
                 </div>
 
-                <div className='divUsuarios'>
+                <div className='divUsuarios divIzquierda'>
                      {
                         isMount && arrayUsuarios.toString()
                         ?
