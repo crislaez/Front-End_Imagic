@@ -12,15 +12,26 @@ function Inicio(props){
     
     const [isMount, setIsMount] = useState(false);
     const [arrayTodasFotos, setArrayTodasFotos] = useState([]);
-
+    const [arrayUsuariosSeguidos, setArrayUsuariosSeguidos] = useState([]);
+    
     useEffect( () => {
         setIsMount(true);
         fetchgetAllImagenes();
-
+        funcionDatosSeguidos()
         return() => {
             setIsMount(false);
         }
     },[]);
+
+    const funcionDatosSeguidos = () => {
+        // addFollowByIdUser
+        Services.addFollowByIdUser(localStorage.getItem('userKeyImagic'))
+        .then(response => {
+            console.log(response.data);
+            setArrayUsuariosSeguidos(response.data)
+        })
+        .catch(err => console.log(err))
+    };
 
     const fetchgetAllImagenes = () => {
         Services.getAllImagenes()
@@ -36,7 +47,8 @@ function Inicio(props){
             <div className='divContenedorLeft'>
                 
             <Historial
-            funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+            funcionBuscarUsuarios={props.funcionBuscarUsuarios}
+            arrayUsuariosSeguidos={arrayUsuariosSeguidos} 
             ></Historial>
 
                 {
@@ -63,6 +75,7 @@ function Inicio(props){
 
             <InicioDerecha
             funcionBuscarUsuarios={props.funcionBuscarUsuarios} 
+            funcionDatosSeguidos={funcionDatosSeguidos}
             ></InicioDerecha>
             
 

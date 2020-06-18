@@ -7,25 +7,25 @@ import { faDigitalTachograph } from '@fortawesome/free-solid-svg-icons';
 
 function Historial(props){
 
-    const [arrayUsuariosSeguidos, setArrayUsuariosSeguidos] = useState([])
+    // const [arrayUsuariosSeguidos, setArrayUsuariosSeguidos] = useState([])
 
     useEffect( () => {
 
-        funcionDatosSeguidos()
+        // funcionDatosSeguidos()
         return() => {
 
         }
     },[])
 
-    const funcionDatosSeguidos = () => {
-        // addFollowByIdUser
-        Services.addFollowByIdUser(localStorage.getItem('userKeyImagic'))
-        .then(response => {
-            console.log(response.data);
-            setArrayUsuariosSeguidos(response.data)
-        })
-        .catch(err => console.log(err))
-    };
+    // const funcionDatosSeguidos = () => {
+    //     // addFollowByIdUser
+    //     Services.addFollowByIdUser(localStorage.getItem('userKeyImagic'))
+    //     .then(response => {
+    //         console.log(response.data);
+    //         setArrayUsuariosSeguidos(response.data)
+    //     })
+    //     .catch(err => console.log(err))
+    // };
 
     const handleClick = (event) => {
         //llamamos a la funcion que esta en app para que nos redirija al perfil
@@ -36,7 +36,7 @@ function Historial(props){
     return(
         <div className='divHistorial'>
             {
-                arrayUsuariosSeguidos.map( (dato, key) => {
+                props.arrayUsuariosSeguidos.map( (dato, key) => {
                    return(
                         <div key={key} className='divDatosHistorial'>
                             <div className='divImagenHistorial'>

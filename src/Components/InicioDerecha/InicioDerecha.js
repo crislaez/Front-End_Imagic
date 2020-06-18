@@ -58,6 +58,9 @@ function InicioDerecha(props){
             Services.addFollow(data)
             .then(response => {
                 console.log(response)
+                //llamamos a la funcion que esta en inicio
+                const funcionDatosSeguidos = props.funcionDatosSeguidos;
+                funcionDatosSeguidos();
             })
             .catch(err => console.log(err))
             //cargamos los datos del usuario logueado
